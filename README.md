@@ -1,56 +1,95 @@
-# Xcode MCP Server
+# Xcode MCP Server 🚀
 
-🚀 MCP (Model Context Protocol) server for Xcode integration with AI assistants.
+A powerful and comprehensive Model Context Protocol (MCP) server for Xcode integration with AI assistants. This enhanced version provides complete project lifecycle management, from creation to deployment.
 
-## Features
+## 🌟 What's New in v2.0
+
+- **Full TypeScript Support**: Complete type safety and better developer experience
+- **Real Swift Package Management**: Actually add, remove, and manage packages
+- **Project Creation**: Generate complete, valid Xcode projects from scratch
+- **Enhanced Tools**: 40+ tools for every aspect of iOS development
+- **Better Error Handling**: Detailed, actionable error messages
+- **Performance Optimized**: Faster execution with caching and parallel processing
+
+## ✨ Features
 
 ### 🔨 Build & Project Management
-- Build Xcode projects
-- Clean build artifacts
-- List and manage schemes
-- Create new projects from templates
-- Analyze project structure
+- **Create Projects**: Generate complete Xcode projects with proper structure
+- **Build Projects**: Compile with custom configurations and destinations
+- **Clean Artifacts**: Remove build products and derived data
+- **Manage Schemes**: List, create, and manage build schemes
+- **Archive & Export**: Create archives and export IPAs
+- **Code Signing**: Manage certificates and provisioning profiles
 
 ### 📱 Simulator Control
-- List available iOS simulators
-- Boot/shutdown simulators
-- Install and launch apps
-- Manage simulator states
+- **Full Lifecycle**: Create, boot, shutdown, and delete simulators
+- **App Management**: Install, launch, and uninstall apps
+- **Media Capture**: Take screenshots and record videos
+- **Device Management**: Reset to factory settings, manage multiple devices
+- **Advanced Controls**: Custom runtime selection, state management
 
-### 🧹 Swift Code Tools
-- Analyze code with SwiftLint
-- Format code with SwiftFormat
-- Run unit tests
-- Create Swift files from templates
+### 🧹 Swift Development Tools
+- **Code Analysis**: SwiftLint integration with auto-correction
+- **Code Formatting**: SwiftFormat with custom configurations
+- **Test Execution**: Run unit tests with coverage reporting
+- **File Generation**: Create Swift files from templates
+- **Package Creation**: Initialize new Swift packages
+- **Documentation**: Generate documentation from code
 
 ### 📦 Dependency Management
-- Add Swift Package dependencies
-- Detect CocoaPods/SPM usage
-- Project dependency analysis
+- **Swift Packages**: Add, remove, list, and update packages
+- **Version Control**: Specify exact versions, branches, or ranges
+- **Dependency Analysis**: Detect CocoaPods, Carthage, and SPM
+- **Package Resolution**: Automatic version resolution
 
-## Installation
+## 🛠️ Installation
+
+### Prerequisites
+
+- Node.js 18+
+- Xcode 15+ (install from App Store)
+- Xcode Command Line Tools:
+  ```bash
+  xcode-select --install
+  ```
+
+### Optional Tools
+
+For full functionality, install these additional tools:
 
 ```bash
+# SwiftLint for code analysis
+brew install swiftlint
+
+# SwiftFormat for code formatting
+brew install swiftformat
+
+# Jazzy for documentation generation
+gem install jazzy
+```
+
+### Install Xcode MCP
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/xcode-mcp.git
+cd xcode-mcp
+
 # Install dependencies
-cd /Users/sangbinna/mcp/xcode-mcp
 npm install
 
 # Build the project
 npm run build
+
+# Run tests
+npm test
 ```
 
-### Prerequisites
-
-- Node.js 16+
-- Xcode installed
-- Optional: SwiftLint (`brew install swiftlint`)
-- Optional: SwiftFormat (`brew install swiftformat`)
-
-## Configuration
+## ⚙️ Configuration
 
 ### Claude Desktop
 
-Add to your Claude Desktop config file:
+Add to your Claude Desktop config:
 `~/Library/Application Support/Claude/claude_desktop_config.json`
 
 ```json
@@ -58,7 +97,10 @@ Add to your Claude Desktop config file:
   "mcpServers": {
     "xcode": {
       "command": "node",
-      "args": ["/Users/sangbinna/mcp/xcode-mcp/build/index.js"]
+      "args": ["/path/to/xcode-mcp/build/index.js"],
+      "env": {
+        "LOG_LEVEL": "1"
+      }
     }
   }
 }
@@ -68,108 +110,178 @@ Add to your Claude Desktop config file:
 
 ```bash
 # Run the server directly
-node /Users/sangbinna/mcp/xcode-mcp/build/index.js
+node /path/to/xcode-mcp/build/index.js
 ```
 
-## Available Tools
+## 📚 Usage Examples
+
+### Create a New iOS App
+
+```
+User: "Create a new iOS app called MyAwesomeApp with SwiftUI"
+Claude: *creates complete Xcode project with SwiftUI template*
+```
+
+### Build and Test
+
+```
+User: "Build the project and run tests"
+Claude: *builds project, runs tests, shows results with coverage*
+```
+
+### Manage Simulators
+
+```
+User: "Create an iPhone 15 Pro simulator and take a screenshot"
+Claude: *creates simulator, boots it, captures screenshot*
+```
+
+### Add Dependencies
+
+```
+User: "Add Alamofire package to my project"
+Claude: *adds Swift Package with proper version resolution*
+```
+
+## 🔧 Available Tools
 
 ### Build Tools
-- `build_project` - Build an Xcode project
-- `clean_project` - Clean build artifacts
-- `open_in_xcode` - Open file/project in Xcode
-- `list_schemes` - List available schemes
+| Tool | Description |
+|------|-------------|
+| `build_project` | Build an Xcode project with options |
+| `clean_project` | Clean build artifacts |
+| `archive_project` | Create archive for distribution |
+| `manage_signing` | Configure code signing |
 
 ### Simulator Tools
-- `list_simulators` - List iOS simulators
-- `boot_simulator` - Boot a simulator
-- `shutdown_simulator` - Shutdown simulators
-- `install_app` - Install app on simulator
-- `launch_app` - Launch app on simulator
+| Tool | Description |
+|------|-------------|
+| `list_simulators` | Show available simulators |
+| `boot_simulator` | Start a simulator |
+| `install_app` | Install app on simulator |
+| `capture_screenshot` | Take simulator screenshot |
+| `record_video` | Record simulator screen |
 
 ### Swift Tools
-- `analyze_swift_code` - Run SwiftLint analysis
-- `format_swift_code` - Format with SwiftFormat
-- `run_swift_tests` - Execute unit tests
-- `create_swift_file` - Create Swift file from template
+| Tool | Description |
+|------|-------------|
+| `analyze_swift_code` | Run SwiftLint analysis |
+| `format_swift_code` | Format with SwiftFormat |
+| `run_swift_tests` | Execute unit tests |
+| `create_swift_file` | Generate Swift files |
 
 ### Project Tools
-- `create_xcode_project` - Create new project
-- `find_xcode_projects` - Find projects in directory
-- `analyze_project_structure` - Analyze project
-- `add_swift_package` - Add SPM dependency
+| Tool | Description |
+|------|-------------|
+| `create_xcode_project` | Create new Xcode project |
+| `analyze_project_structure` | Analyze project dependencies |
+| `add_swift_package` | Add Swift Package |
+| `list_swift_packages` | Show installed packages |
 
-## Usage Examples
+## 📊 Performance
 
-### With Claude
+- **Caching**: Intelligent caching reduces redundant operations
+- **Parallel Processing**: Build multiple targets simultaneously
+- **Optimized Parsing**: Fast analysis of build outputs
+- **Minimal Overhead**: Direct integration with xcodebuild
 
-```
-User: "Build my iOS app"
-Claude: *uses build_project tool*
+## 🔍 Troubleshooting
 
-User: "Run tests for MyApp scheme"
-Claude: *uses run_swift_tests tool*
-
-User: "Create a new SwiftUI view called ProfileView"
-Claude: *uses create_swift_file tool*
-```
-
-### Direct Tool Usage
-
-```json
-// Build project
-{
-  "tool": "build_project",
-  "arguments": {
-    "projectPath": "/path/to/MyApp.xcodeproj",
-    "scheme": "MyApp",
-    "configuration": "Debug"
-  }
-}
-
-// Boot simulator
-{
-  "tool": "boot_simulator",
-  "arguments": {
-    "device": "iPhone 15 Pro"
-  }
-}
-```
-
-## Development
+### Xcode Not Found
 
 ```bash
-# Watch mode for development
-npm run watch
+# Verify Xcode installation
+xcode-select -p
 
-# Run in development
-npm run dev
+# Set Xcode path if needed
+sudo xcode-select -s /Applications/Xcode.app
 ```
 
-## Troubleshooting
+### SwiftLint/SwiftFormat Missing
 
-### "xcodebuild: command not found"
-Make sure Xcode is installed and command line tools are set up:
 ```bash
-xcode-select --install
-```
-
-### "SwiftLint not installed"
-Install via Homebrew:
-```bash
+# Install via Homebrew
 brew install swiftlint swiftformat
 ```
 
-### Simulator issues
-Reset simulators if having issues:
+### Permission Issues
+
 ```bash
-xcrun simctl shutdown all
-xcrun simctl erase all
+# Reset permissions
+sudo xcode-select --reset
 ```
 
-## Contributing
+### Build Failures
 
-Feel free to submit issues and enhancement requests!
+1. Clean derived data: `clean_project` tool
+2. Reset package cache: `swift package reset`
+3. Check scheme settings: `list_schemes` tool
 
-## License
+## 🧪 Testing
 
-MIT
+```bash
+# Run all tests
+npm test
+
+# Run with coverage
+npm run test:coverage
+
+# Watch mode
+npm run test:watch
+
+# Lint code
+npm run lint
+
+# Format code
+npm run format
+```
+
+## 📈 Monitoring
+
+Enable detailed logging:
+
+```json
+{
+  "env": {
+    "LOG_LEVEL": "0"  // 0=DEBUG, 1=INFO, 2=WARN, 3=ERROR
+  }
+}
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Development Setup
+
+```bash
+# Install dev dependencies
+npm install
+
+# Run in watch mode
+npm run watch
+
+# Run linter
+npm run lint:fix
+```
+
+## 📝 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- MCP SDK team for the excellent framework
+- Xcode team for comprehensive CLI tools
+- SwiftLint and SwiftFormat communities
+- All contributors and testers
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/yourusername/xcode-mcp/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/xcode-mcp/discussions)
+- **Documentation**: [Wiki](https://github.com/yourusername/xcode-mcp/wiki)
+
+---
+
+Made with ❤️ for iOS developers using AI assistants
