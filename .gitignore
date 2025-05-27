@@ -1,18 +1,25 @@
-# Node.js
+# Node
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.npm
 
 # TypeScript
 build/
+dist/
 *.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 .DS_Store
 
 # Environment
@@ -25,9 +32,13 @@ logs/
 *.log
 
 # OS
-.DS_Store
 Thumbs.db
 
-# Test coverage
-coverage/
-.nyc_output/
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.backup
+*.backup.*
